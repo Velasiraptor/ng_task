@@ -1,0 +1,103 @@
+[gd_scene load_steps=16 format=3 uid="uid://cqkt1motup3tl"]
+
+[ext_resource type="Script" path="res://Scenes/Game/game.gd" id="1_1v3v3"]
+[ext_resource type="PackedScene" uid="uid://dbtp1ss77bk2d" path="res://Scenes/Street/street.tscn" id="1_gllt5"]
+[ext_resource type="PackedScene" uid="uid://dmmfjsydv6qf1" path="res://Scenes/Player/player.tscn" id="2_dtv8m"]
+[ext_resource type="PackedScene" uid="uid://dttu1n8hmyh3l" path="res://Scenes/at_home/house.tscn" id="3_8tiha"]
+[ext_resource type="PackedScene" uid="uid://cx7jeen014ker" path="res://Scenes/at_home/interior_1/interior_house_1.tscn" id="5_alrhw"]
+[ext_resource type="PackedScene" uid="uid://v23op0jyf3d8" path="res://Scenes/at_home/interior_2/interior_house_2.tscn" id="5_jb5j5"]
+[ext_resource type="PackedScene" uid="uid://dkbkt83atpu12" path="res://Scenes/at_home/interior_3/interior_house_3.tscn" id="6_r6iky"]
+[ext_resource type="PackedScene" uid="uid://q3p2wjv0eww0" path="res://Scenes/Item_select/item_select.tscn" id="9_xgdib"]
+[ext_resource type="Texture2D" uid="uid://becms1fsdsrs6" path="res://Sprites/Item_select/apple.png" id="9_xklhh"]
+[ext_resource type="Texture2D" uid="uid://vmxx74lrouj8" path="res://Sprites/Item_select/orange.png" id="10_0behw"]
+[ext_resource type="Texture2D" uid="uid://bygqdrx7bb5gu" path="res://Sprites/Item_select/chilli.png" id="11_78iio"]
+[ext_resource type="Texture2D" uid="uid://8aa05lreoywa" path="res://Sprites/Item_select/olives.png" id="12_gcud7"]
+[ext_resource type="Texture2D" uid="uid://8c7s0f3k05ao" path="res://Sprites/Item_select/key.png" id="13_s4qks"]
+[ext_resource type="Texture2D" uid="uid://cumid5blrsgln" path="res://Sprites/Item_select/potion.png" id="14_ha62i"]
+[ext_resource type="PackedScene" uid="uid://cd1mdjeodjcvl" path="res://Scenes/Item_static/static_item.tscn" id="15_87qnx"]
+
+[node name="Game" type="Node2D" groups=["Restart"]]
+y_sort_enabled = true
+script = ExtResource("1_1v3v3")
+
+[node name="Street" parent="." instance=ExtResource("1_gllt5")]
+z_index = -1
+
+[node name="Player" parent="." instance=ExtResource("2_dtv8m")]
+unique_name_in_owner = true
+y_sort_enabled = true
+position = Vector2(0, 350)
+
+[node name="At_home" type="Node2D" parent="."]
+
+[node name="house_1" parent="At_home" instance=ExtResource("3_8tiha")]
+unique_name_in_owner = true
+position = Vector2(-575, -148)
+interior = ExtResource("5_alrhw")
+
+[node name="house_2" parent="At_home" instance=ExtResource("3_8tiha")]
+unique_name_in_owner = true
+position = Vector2(0, -148)
+interior = ExtResource("5_jb5j5")
+number_house = 2
+
+[node name="house_3" parent="At_home" instance=ExtResource("3_8tiha")]
+unique_name_in_owner = true
+position = Vector2(575, -148)
+interior = ExtResource("6_r6iky")
+number_house = 3
+
+[node name="Items_select" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="apple" parent="Items_select" instance=ExtResource("9_xgdib")]
+position = Vector2(-504, 193)
+texture = ExtResource("9_xklhh")
+apple = true
+
+[node name="orange" parent="Items_select" instance=ExtResource("9_xgdib")]
+position = Vector2(301, 383)
+texture = ExtResource("10_0behw")
+orange = true
+
+[node name="chilli" parent="Items_select" instance=ExtResource("9_xgdib")]
+position = Vector2(-415, 334)
+texture = ExtResource("11_78iio")
+chilli = true
+
+[node name="chilli2" parent="Items_select" instance=ExtResource("9_xgdib")]
+position = Vector2(392, 197)
+texture = ExtResource("11_78iio")
+chilli = true
+
+[node name="chilli3" parent="Items_select" instance=ExtResource("9_xgdib")]
+position = Vector2(745, 268)
+texture = ExtResource("11_78iio")
+chilli = true
+
+[node name="olives" parent="Items_select" instance=ExtResource("9_xgdib")]
+position = Vector2(-283, 430)
+texture = ExtResource("12_gcud7")
+olives = true
+
+[node name="key" parent="Items_select" instance=ExtResource("9_xgdib")]
+position = Vector2(-298, 124)
+texture = ExtResource("13_s4qks")
+key = true
+
+[node name="Potion" parent="Items_select" instance=ExtResource("9_xgdib")]
+position = Vector2(264, -291)
+texture = ExtResource("14_ha62i")
+alarm_potion = true
+
+[node name="Static_item" parent="." instance=ExtResource("15_87qnx")]
+position = Vector2(-143, 243)
+text_item = "Я стол"
+
+[node name="Static_item2" parent="." instance=ExtResource("15_87qnx")]
+position = Vector2(119, 241)
+text_item = "Я тоже стол"
+
+[node name="Static_item3" parent="." instance=ExtResource("15_87qnx")]
+position = Vector2(-743, 288)
+text_item = "Я стол в сарае"

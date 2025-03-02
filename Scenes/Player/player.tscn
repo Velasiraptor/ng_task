@@ -1,0 +1,118 @@
+[gd_scene load_steps=9 format=3 uid="uid://dmmfjsydv6qf1"]
+
+[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_trcbu"]
+[ext_resource type="Texture2D" uid="uid://cr3cwev8ju73x" path="res://Sprites/Player/Player_down.png" id="2_0fiht"]
+[ext_resource type="Texture2D" uid="uid://saqig5kqokt0" path="res://Sprites/Player/Player_left.png" id="3_yxmbq"]
+[ext_resource type="Texture2D" uid="uid://163fxwoh44yx" path="res://Sprites/Player/Player_right.png" id="4_awdxc"]
+[ext_resource type="Texture2D" uid="uid://dl2tywl2b28xr" path="res://Sprites/Player/Player_up.png" id="5_sg58d"]
+[ext_resource type="PackedScene" uid="uid://cu8upn8fg0pm7" path="res://Scenes/HUD/hud.tscn" id="6_cggdp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cbgc0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0fiht")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_yxmbq")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_awdxc")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_sg58d")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bis5c"]
+size = Vector2(35, 25)
+
+[node name="Player" type="CharacterBody2D" groups=["Player", "Restart"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_trcbu")
+
+[node name="player_sprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-6, 0)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_cbgc0")
+animation = &"down"
+offset = Vector2(0, -234)
+
+[node name="RayCasts" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -11)
+
+[node name="RayCast_item" type="RayCast2D" parent="RayCasts"]
+unique_name_in_owner = true
+position = Vector2(0, -13)
+target_position = Vector2(0, 60)
+collision_mask = 4
+
+[node name="RayCast_item2" type="RayCast2D" parent="RayCasts"]
+unique_name_in_owner = true
+position = Vector2(-17, -13)
+target_position = Vector2(0, 60)
+collision_mask = 4
+
+[node name="RayCast_item3" type="RayCast2D" parent="RayCasts"]
+unique_name_in_owner = true
+position = Vector2(16, -13)
+target_position = Vector2(0, 60)
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -12.5)
+shape = SubResource("RectangleShape2D_bis5c")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -64)
+
+[node name="Fall" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = -102.0
+offset_top = -58.0
+offset_right = 117.0
+offset_bottom = -3.0
+rotation = -0.408314
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "ПРОИГРАЛ"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("6_cggdp")]
+
+[node name="Label_E" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 2
+offset_left = -72.0
+offset_top = -178.0
+offset_right = 82.0
+offset_bottom = -155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Нажмите 'E'"
+horizontal_alignment = 1

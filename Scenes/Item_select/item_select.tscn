@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://q3p2wjv0eww0"]
+
+[ext_resource type="Script" path="res://Scenes/Item_select/item_select.gd" id="1_6qj30"]
+[ext_resource type="Texture2D" uid="uid://fw4ehw7tusty" path="res://Sprites/Item_select/item_select.png" id="1_545ir"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gp4qd"]
+radius = 28.6356
+
+[node name="Item_select" type="Sprite2D"]
+texture = ExtResource("1_545ir")
+offset = Vector2(0, -26.5)
+script = ExtResource("1_6qj30")
+
+[node name="item_name_label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -77.0
+offset_top = -82.0
+offset_right = 77.0
+offset_bottom = -59.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Яблоко"
+horizontal_alignment = 1
+
+[node name="Item_select" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item_select"]
+position = Vector2(0, -27)
+shape = SubResource("CircleShape2D_gp4qd")
+
+[connection signal="body_entered" from="Item_select" to="." method="_on_item_select_body_entered"]

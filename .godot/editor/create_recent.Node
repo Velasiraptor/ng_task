@@ -1,0 +1,14 @@
+Node2D
+Button
+Label
+MarginContainer
+HBoxContainer
+VBoxContainer
+CenterContainer
+CollisionShape2D
+ColorRect
+StaticBody2D
+Timer
+AnimationPlayer
+Area2D
+Sprite2D

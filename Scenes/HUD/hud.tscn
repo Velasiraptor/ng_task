@@ -1,0 +1,244 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu8upn8fg0pm7"]
+
+[ext_resource type="Script" path="res://Scenes/HUD/hud.gd" id="1_0w6hh"]
+
+[node name="HUD" type="Control" groups=["HUD", "Restart"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0w6hh")
+
+[node name="VBox_HPbar" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBox_HPbar"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+
+[node name="HBox_HPbar" type="HBoxContainer" parent="VBox_HPbar"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBox_HPbar/HBox_HPbar"]
+custom_minimum_size = Vector2(40, 100)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBox_HPbar/HBox_HPbar"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="ColorRect_outline" type="ColorRect" parent="VBox_HPbar/HBox_HPbar/MarginContainer2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="VBox_HPbar/HBox_HPbar/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="VBox_HPbar/HBox_HPbar/MarginContainer2/CenterContainer"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBox_HPbar/HBox_HPbar/MarginContainer2/CenterContainer/MarginContainer"]
+layout_mode = 2
+color = Color(1, 1, 0.662745, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBox_HPbar/HBox_HPbar/MarginContainer2/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HP" type="Label" parent="VBox_HPbar/HBox_HPbar/MarginContainer2/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "HP 10/10"
+horizontal_alignment = 3
+
+[node name="Keys" type="Label" parent="VBox_HPbar/HBox_HPbar/MarginContainer2/CenterContainer/VBoxContainer" groups=["Restart"]]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Ключи: 0"
+horizontal_alignment = 3
+
+[node name="VBox_buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBox_buttons"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBox_buttons"]
+layout_mode = 2
+
+[node name="Margin_button_exit" type="MarginContainer" parent="VBox_buttons/HBoxContainer"]
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 2
+
+[node name="Button_exit" type="Button" parent="VBox_buttons/HBoxContainer/Margin_button_exit"]
+layout_mode = 2
+text = "Выход"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBox_buttons/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBox_buttons"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBox_buttons"]
+layout_mode = 2
+
+[node name="Margin_button_restart" type="MarginContainer" parent="VBox_buttons/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 2
+
+[node name="Button_restart" type="Button" parent="VBox_buttons/HBoxContainer2/Margin_button_restart"]
+layout_mode = 2
+text = "Переза-пуск"
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBox_buttons/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="VBox_text" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBox_text"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="text_HUD" type="Label" parent="VBox_text/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "DFSsfdsdfds"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="VBox_text/MarginContainer2/text_HUD"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBox_text"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Timer_text" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
+[node name="Key_menu" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Key_menu"]
+layout_mode = 2
+
+[node name="Margin_answer" type="MarginContainer" parent="Key_menu/VBox"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Key_menu/VBox/Margin_answer"]
+custom_minimum_size = Vector2(500, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Вы хотите потратить 1 ключ и открыть дверь?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Key_menu/VBox/Margin_answer/Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Margin_YesNo" type="MarginContainer" parent="Key_menu/VBox"]
+custom_minimum_size = Vector2(500, 60)
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="Key_menu/VBox/Margin_YesNo"]
+layout_mode = 2
+
+[node name="Margin_L" type="MarginContainer" parent="Key_menu/VBox/Margin_YesNo/HBox"]
+custom_minimum_size = Vector2(55, 0)
+layout_mode = 2
+
+[node name="Margin_yes" type="MarginContainer" parent="Key_menu/VBox/Margin_YesNo/HBox"]
+custom_minimum_size = Vector2(166, 0)
+layout_mode = 2
+
+[node name="Button_Yes" type="Button" parent="Key_menu/VBox/Margin_YesNo/HBox/Margin_yes"]
+modulate = Color(0, 1, 0.113725, 1)
+layout_mode = 2
+text = "ДА"
+
+[node name="Margin_center" type="MarginContainer" parent="Key_menu/VBox/Margin_YesNo/HBox"]
+custom_minimum_size = Vector2(55, 0)
+layout_mode = 2
+
+[node name="Margin_no" type="MarginContainer" parent="Key_menu/VBox/Margin_YesNo/HBox"]
+custom_minimum_size = Vector2(166, 0)
+layout_mode = 2
+
+[node name="Button_No" type="Button" parent="Key_menu/VBox/Margin_YesNo/HBox/Margin_no"]
+modulate = Color(0.760784, 0.0745098, 0, 1)
+layout_mode = 2
+text = "НЕТ"
+
+[node name="Margin_R" type="MarginContainer" parent="Key_menu/VBox/Margin_YesNo/HBox"]
+custom_minimum_size = Vector2(55, 0)
+layout_mode = 2
+
+[connection signal="pressed" from="VBox_buttons/HBoxContainer/Margin_button_exit/Button_exit" to="." method="_on_button_exit_pressed"]
+[connection signal="pressed" from="VBox_buttons/HBoxContainer2/Margin_button_restart/Button_restart" to="." method="_on_button_restart_pressed"]
+[connection signal="timeout" from="Timer_text" to="." method="_on_timer_text_timeout"]
+[connection signal="pressed" from="Key_menu/VBox/Margin_YesNo/HBox/Margin_yes/Button_Yes" to="." method="_on_button_yes_pressed"]
+[connection signal="pressed" from="Key_menu/VBox/Margin_YesNo/HBox/Margin_no/Button_No" to="." method="_on_button_no_pressed"]

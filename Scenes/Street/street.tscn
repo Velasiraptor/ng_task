@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbtp1ss77bk2d"]
+
+[ext_resource type="Texture2D" uid="uid://cf0tit46yfuvp" path="res://Sprites/Street/Street.png" id="1_6wmor"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wybpw"]
+size = Vector2(1903, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmqbe"]
+size = Vector2(68.5, 969.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6rxt"]
+size = Vector2(153, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rj5um"]
+size = Vector2(139, 12)
+
+[node name="Street" type="StaticBody2D"]
+collision_mask = 2
+
+[node name="Street" type="Sprite2D" parent="."]
+texture = ExtResource("1_6wmor")
+
+[node name="Collision_up" type="CollisionShape2D" parent="."]
+position = Vector2(9.5, -475.5)
+shape = SubResource("RectangleShape2D_wybpw")
+
+[node name="Collision_down" type="CollisionShape2D" parent="."]
+position = Vector2(9.5, 482.5)
+shape = SubResource("RectangleShape2D_wybpw")
+
+[node name="Collision_left" type="CollisionShape2D" parent="."]
+position = Vector2(-951, 6.125)
+shape = SubResource("RectangleShape2D_jmqbe")
+
+[node name="Collision_right" type="CollisionShape2D" parent="."]
+position = Vector2(956, 6.125)
+shape = SubResource("RectangleShape2D_jmqbe")
+
+[node name="Barn" type="StaticBody2D" parent="."]
+position = Vector2(-736, 285)
+collision_layer = 5
+collision_mask = 2
+
+[node name="ColorRect" type="ColorRect" parent="Barn"]
+offset_left = -39.0
+offset_top = -74.0
+offset_right = 104.0
+offset_bottom = -62.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Barn"]
+offset_left = -39.0
+offset_top = 57.0
+offset_right = 104.0
+offset_bottom = 69.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Barn"]
+offset_left = -39.0
+offset_top = -74.0
+offset_right = 104.0
+offset_bottom = -62.0
+rotation = 1.5708
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barn"]
+position = Vector2(26.5, 63)
+shape = SubResource("RectangleShape2D_o6rxt")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Barn"]
+position = Vector2(26.5, -68)
+shape = SubResource("RectangleShape2D_o6rxt")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Barn"]
+position = Vector2(-44, -3.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_rj5um")
+
+[node name="Label" type="Label" parent="Barn"]
+offset_left = -53.0
+offset_top = -99.0
+offset_right = 101.0
+offset_bottom = -76.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Стены сарая"
+horizontal_alignment = 1

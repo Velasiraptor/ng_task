@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dttu1n8hmyh3l"]
+
+[ext_resource type="Script" path="res://Scenes/at_home/house.gd" id="1_wyhwa"]
+[ext_resource type="Texture2D" uid="uid://c4aeeii1rqkpy" path="res://Sprites/house/house.png" id="1_xxxt4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5f5j"]
+size = Vector2(453, 246)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hx34c"]
+size = Vector2(162, 56)
+
+[node name="house" type="StaticBody2D"]
+collision_mask = 2
+script = ExtResource("1_wyhwa")
+
+[node name="House" type="Sprite2D" parent="."]
+texture = ExtResource("1_xxxt4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 29)
+shape = SubResource("RectangleShape2D_a5f5j")
+
+[node name="detecter_player" type="Area2D" parent="."]
+position = Vector2(-3, 175)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detecter_player"]
+shape = SubResource("RectangleShape2D_hx34c")
+debug_color = Color(0.86697, 0.340308, 0.266621, 0.42)
+
+[node name="Player_position" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1, 250)
+
+[connection signal="body_entered" from="detecter_player" to="." method="_on_detecter_player_body_entered"]

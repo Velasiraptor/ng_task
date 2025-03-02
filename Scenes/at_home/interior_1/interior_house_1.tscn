@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://cx7jeen014ker"]
+
+[ext_resource type="Script" path="res://Scenes/at_home/interior_1/interior_house_1.gd" id="1_0pm22"]
+[ext_resource type="Texture2D" uid="uid://bhn16rogdpvc1" path="res://Sprites/house/interior_of_the_house.png" id="1_50cc2"]
+[ext_resource type="PackedScene" uid="uid://dmmfjsydv6qf1" path="res://Scenes/Player/player.tscn" id="2_r57lj"]
+[ext_resource type="PackedScene" uid="uid://q3p2wjv0eww0" path="res://Scenes/Item_select/item_select.tscn" id="4_7ypia"]
+[ext_resource type="Texture2D" uid="uid://8c7s0f3k05ao" path="res://Sprites/Item_select/key.png" id="5_r01e1"]
+[ext_resource type="PackedScene" uid="uid://cd1mdjeodjcvl" path="res://Scenes/Item_static/static_item.tscn" id="6_dnoh5"]
+[ext_resource type="Texture2D" uid="uid://bygqdrx7bb5gu" path="res://Sprites/Item_select/chilli.png" id="6_fnxoj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6npa"]
+size = Vector2(429.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lkeo"]
+size = Vector2(120, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcc7v"]
+size = Vector2(19, 432)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dm0iq"]
+size = Vector2(941, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfddi"]
+size = Vector2(108, 32)
+
+[node name="interior_house_1" type="StaticBody2D"]
+y_sort_enabled = true
+collision_mask = 2
+script = ExtResource("1_0pm22")
+
+[node name="InteriorOfTheHouse" type="Sprite2D" parent="."]
+z_index = -1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_50cc2")
+
+[node name="Collision_bottom_L" type="CollisionShape2D" parent="."]
+position = Vector2(-263.25, 236)
+shape = SubResource("RectangleShape2D_x6npa")
+
+[node name="Collision_bottom_R" type="CollisionShape2D" parent="."]
+position = Vector2(273.25, 236)
+shape = SubResource("RectangleShape2D_x6npa")
+
+[node name="Collision_bottom_center" type="CollisionShape2D" parent="."]
+position = Vector2(3, 253)
+shape = SubResource("RectangleShape2D_0lkeo")
+
+[node name="Collision_left" type="CollisionShape2D" parent="."]
+position = Vector2(-465.5, 30)
+shape = SubResource("RectangleShape2D_dcc7v")
+
+[node name="Collision_right" type="CollisionShape2D" parent="."]
+position = Vector2(466.5, 30)
+shape = SubResource("RectangleShape2D_dcc7v")
+
+[node name="Collision_top" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -165.5)
+shape = SubResource("RectangleShape2D_dm0iq")
+
+[node name="Player" parent="." instance=ExtResource("2_r57lj")]
+unique_name_in_owner = true
+position = Vector2(0, 183)
+
+[node name="detecter_player" type="Area2D" parent="."]
+position = Vector2(0, 232)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detecter_player"]
+position = Vector2(5, 12)
+shape = SubResource("RectangleShape2D_sfddi")
+debug_color = Color(0.86697, 0.340308, 0.266621, 0.42)
+
+[node name="Items_select" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="key" parent="Items_select" instance=ExtResource("4_7ypia")]
+position = Vector2(-233, -18)
+texture = ExtResource("5_r01e1")
+key = true
+
+[node name="chilli" parent="Items_select" instance=ExtResource("4_7ypia")]
+position = Vector2(288, 133)
+texture = ExtResource("6_fnxoj")
+chilli = true
+
+[node name="Static_item" parent="." instance=ExtResource("6_dnoh5")]
+position = Vector2(206, -25)
+text_item = "Я стол в первом доме"
+
+[connection signal="body_entered" from="detecter_player" to="." method="_on_detecter_player_body_entered"]

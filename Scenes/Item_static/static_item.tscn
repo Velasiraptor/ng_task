@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd1mdjeodjcvl"]
+
+[ext_resource type="Texture2D" uid="uid://dkw5n7a2f4v0d" path="res://Sprites/Item_static/Static_item.png" id="1_ncx4x"]
+[ext_resource type="Script" path="res://Scenes/Item_static/static_item.gd" id="2_jpy61"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t72nx"]
+size = Vector2(191.429, 135.714)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ogikd"]
+radius = 218.601
+
+[node name="Static_item" type="Sprite2D"]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_ncx4x")
+offset = Vector2(0, -85)
+script = ExtResource("2_jpy61")
+
+[node name="detector_player" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detector_player"]
+position = Vector2(1.42858, -57.8571)
+shape = SubResource("RectangleShape2D_t72nx")
+debug_color = Color(0.595001, 0.538189, 0.258511, 0.42)
+
+[node name="detector_player_area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detector_player_area"]
+position = Vector2(1.42858, -76.4285)
+shape = SubResource("CircleShape2D_ogikd")
+debug_color = Color(0.595001, 0.538189, 0.258511, 0.42)
+
+[connection signal="body_entered" from="detector_player_area" to="." method="_on_detector_player_area_body_entered"]
+[connection signal="body_exited" from="detector_player_area" to="." method="_on_detector_player_area_body_exited"]
