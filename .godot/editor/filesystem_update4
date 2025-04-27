@@ -1,1 +1,10 @@
+res://Scenes/at_home/interior_1/interior_house_1.tscn
+res://Scenes/at_home/interior_2/interior_house_2.tscn
+res://Scenes/at_home/interior_3/interior_house_3.tscn
 res://Scenes/at_home/house.tscn
+res://Scenes/Game/game.tscn
+res://Scenes/HUD/hud.tscn
+res://Scenes/Item_select/item_select.tscn
+res://Scenes/Item_static/static_item.tscn
+res://Scenes/Player/player.tscn
+res://Scenes/Street/street.tscn

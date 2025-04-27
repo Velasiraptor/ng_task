@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cu8upn8fg0pm7"]
 
-[ext_resource type="Script" path="res://Scenes/HUD/hud.gd" id="1_0w6hh"]
+[ext_resource type="Script" uid="uid://d16higxa7yx6n" path="res://Scenes/HUD/hud.gd" id="1_0w6hh"]
 
 [node name="HUD" type="Control" groups=["HUD", "Restart"]]
 layout_mode = 3
